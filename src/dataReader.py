@@ -34,7 +34,7 @@ def load_track_attributes(file_path):
 class DataReader(object):
 
     def __init__(self, file_path, split_train_test=False, train_test_ratio=0.8):
-        self.URM_all = load_train("./data/" + file_path)
+        self.URM_all = load_train("../data/" + file_path)
 
         if split_train_test:
             num_interactions = len(self.URM_all.data)
@@ -52,7 +52,7 @@ class DataReader(object):
 
     def build_icm(self, file_path):
 
-        ICM_all = load_track_attributes("./data/" + file_path)
+        ICM_all = load_track_attributes("../data/" + file_path)
         return ICM_all
 
 

@@ -16,10 +16,10 @@ topR = TopPopularRecommender()
 ICM_all = dr.build_icm("tracks.csv");
 print(ICM_all[0:10])
 
-file = pd.read_csv("./data/train.csv")
+file = pd.read_csv("../data/train.csv")
 list_playlist = list(set(file['playlist_id']))
 
-file2 = pd.read_csv("./data/target_playlists.csv")
+file2 = pd.read_csv("../data/target_playlists.csv")
 target_playlist = list(file2['playlist_id'])
 #print(URM_all[0:10])
 #start_time = time.time()
