@@ -10,7 +10,7 @@ def load_train(file_path):
     URM_column = list(file["track_id"])
     values = np.ones(len(URM_row))
 
-    URM_all = sps.coo_matrix((values, (URM_row, URM_column)))
+    URM_all = sps.coo_matrix((values, (URM_row, URM_column)),dtype=int)
 
     return URM_all
 

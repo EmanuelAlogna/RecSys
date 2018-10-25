@@ -3,6 +3,7 @@ from src.recommender import *
 from src.metrics import *
 import pandas as pd
 import time
+import src.Compute_Similarity_Python as csp
 
 dr = DataReader("train.csv", split_train_test=True)
 URM_all = dr.URM_all
@@ -14,7 +15,6 @@ rr = RandomRecommender()
 topR = TopPopularRecommender()
 
 ICM_all = dr.build_icm("tracks.csv");
-print(ICM_all[0:10])
 
 file = pd.read_csv("../data/train.csv")
 list_playlist = list(set(file['playlist_id']))
@@ -29,5 +29,17 @@ target_playlist = list(file2['playlist_id'])
 
 #evaluate_algorithm(URM_test,topR)
 #print("Total time: {}".format(time.time() - start_time))
+#
+# CSP = csp.Compute_Similarity_Python(ICM_all.T)
+# sim = CSP.compute_similarity()
+# print(sim)
+# CSP = csp.Compute_Similarity_Python(ICM_all.T,topK=50)
+# sim = CSP.compute_similarity()
+# print(sim)
+#
 
-
+cbr = ItemCBFKNNRecommender(URM_all,ICM_all)
+cbr.fit(top_k=50, shrink=0)
+rec = cbr.recommend(0,at=5)
+print(cbr.sim_matrix)
+print(rec)
