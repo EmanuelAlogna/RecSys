@@ -21,7 +21,7 @@ list_playlist = list(set(file['playlist_id']))
 
 file2 = pd.read_csv("./data/target_playlists.csv")
 target_playlist = list(file2['playlist_id'])
-
+#print(URM_all[0:10])
 #start_time = time.time()
 
 

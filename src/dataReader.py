@@ -1,7 +1,8 @@
 import pandas as pd
 import scipy.sparse as sps
 import numpy as np
-
+import time
+from scipy.sparse import coo_matrix, hstack
 
 def load_train(file_path):
     file = pd.read_csv(file_path)
@@ -19,13 +20,13 @@ def load_track_attributes(file_path):
     ICM_row = list(file["track_id"])
     ICM_column1 = list(file["album_id"])
     ICM_column2 = list(file["artist_id"])
-    ICM_column3 = list(file["duration_sec"])
 
-    ICM_all = sps.lil_matrix((len(ICM_row), 3), dtype=int)  # empty 20635x3 sparse matrix
-    for i in range(0, len(ICM_row)):
-        ICM_all[i, 0] = ICM_column1[i]
-        ICM_all[i, 1] = ICM_column2[i]
-        ICM_all[i, 2] = ICM_column3[i]
+    ones = np.ones(len(ICM_row))
+
+    a = sps.coo_matrix((ones, (ICM_row, ICM_column1)))
+    b = sps.coo_matrix((ones, (ICM_row, ICM_column2)))
+    c = hstack([a, b])
+    ICM_all = c.tocsr()
 
     return ICM_all
 
@@ -52,5 +53,7 @@ class DataReader(object):
     def build_icm(self, file_path):
 
         ICM_all = load_track_attributes("./data/" + file_path)
-        ICM_all = ICM_all.tocsr()
         return ICM_all
+
+
+
