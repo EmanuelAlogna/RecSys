@@ -38,8 +38,10 @@ target_playlist = list(file2['playlist_id'])
 # print(sim)
 #
 
-cbr = ItemCBFKNNRecommender(URM_all,ICM_all)
-cbr.fit(top_k=50, shrink=0)
-rec = cbr.recommend(0,at=5)
-print(cbr.sim_matrix)
-print(rec)
+
+start_time = time.time()
+cbr = ItemCBFKNNRecommender(URM_train,ICM_all)
+cbr.fit(top_k= 50 , shrink=0)
+#rec = cbr.recommend(0,at=10)
+evaluate_algorithm(URM_test,cbr)
+print("Tempo totale: {}".format(time.time()-start_time))

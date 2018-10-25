@@ -43,7 +43,7 @@ def evaluate_algorithm(URM_test, recommender_object):
         #tracks in the test set per each playlist
 
         if len(relevant_items) > 0:
-            recommended_item = recommender_object.recommend()
+            recommended_item = recommender_object.recommend(user_id)
             num_eval += 1
 
             cumulative_precision += precision(recommended_item, relevant_items)

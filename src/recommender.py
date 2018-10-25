@@ -43,12 +43,8 @@ class ItemCBFKNNRecommender(object):
         user_profile = self.URM[user_id]
 
         scores = user_profile.dot(self.sim_matrix).toarray().ravel()
-        start_pos = self.ICM.indptr[user_id]
-        end_pos = self.ICM.indptr[user_id+1]
 
-        x = self.ICM.indices[start_pos:end_pos]
-        #print(x)
 
         ranking = scores.argsort()[::-1]
-        print(max(scores))
-        return ranking[:5]
+
+        return ranking[:at]
