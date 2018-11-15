@@ -44,6 +44,7 @@ class ItemCBFKNNRecommender(object):
         #
         # self.sim_matrix = similarity_object.compute_similarity()
 
+
         similarity_object = Cosine_Similarity(self.ICM.T, top_k, shrink)
         self.sim_matrix = similarity_object.compute_similarity()
 
@@ -64,10 +65,6 @@ class ItemCBFKNNRecommender(object):
         user_profile = self.URM.indices[start_pos:end_pos]
         scores[user_profile] = -np.inf
         return scores
-
-
-
-
 
 class UserBasedCollaborativeRS(object):
 
@@ -92,9 +89,6 @@ class UserBasedCollaborativeRS(object):
         ranking = scores.argsort()[::-1]
         return ranking[:at]
 
-
-
-
 class ItemBasedCollaborativeRS(object):
 
     def __init__(self, URM):
@@ -108,9 +102,12 @@ class ItemBasedCollaborativeRS(object):
         #
         # self.sim_matrix = similarity_object.compute_similarity()
 
-        #RECCOMENDATION USING COSINE OF SIMILARITY IMPLEMENTED WITH CYTHON
-        similarity_object = Cosine_Similarity(self.URM,top_k,shrink)
+        # RECOMMENDATION USING COSINE OF SIMILARITY IMPLEMENTED WITH CYTHON
+        similarity_object = Cosine_Similarity(self.URM, top_k, shrink)
         self.sim_matrix = similarity_object.compute_similarity()
+
+        print(self.sim_matrix.shape)
+        print(type(self.sim_matrix))
 
     def recommend(self, user_id, at=None, exclude_seen = True):
         user_profile = self.URM[user_id]

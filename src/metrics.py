@@ -31,7 +31,6 @@ def evaluate_algorithm(URM_test, recommender_object):
     num_eval = 0
 
     for user_id in range(n_users):
-
         relevant_items = URM_test[user_id].indices
         #tracks in the test set per each playlist
 
@@ -53,7 +52,7 @@ def evaluate_algorithm(URM_test, recommender_object):
 
 
 def make_recommendations(recommender, target_playlists, URM_train):
-    recommender.fit(top_k= 200  , shrink=10)
+    recommender.fit(top_k= 50 , shrink=50)
     output_file = open("../data/sample_sumbission.csv", "w")
     output_file.write("playlist_id,track_ids\n")
 
