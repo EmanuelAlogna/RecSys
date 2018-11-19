@@ -30,10 +30,10 @@ def load_track_attributes(file_path):
 
 
 def split_dataset(URM_all):
-    target_playlists = pd.read_csv('./data/target_playlists.csv');
+    target_playlists = pd.read_csv('../data/target_playlists.csv');
     URM_test = URM_all.copy();
     URM_train = URM_all.copy();
-    sequential_playlists = pd.read_csv('./data/train_sequential.csv')
+    sequential_playlists = pd.read_csv('../data/train_sequential.csv')
     sequential_playlists_index = list(target_playlists['playlist_id'])[0:5000];
 
     # This snippet of code take the 20% of sequential playlist
@@ -70,7 +70,7 @@ def split_dataset(URM_all):
         data = data * test_mask
         URM_test.data[row_start: row_end] = data
 
-    all_playlists = pd.read_csv('./data/train.csv')
+    all_playlists = pd.read_csv('../data/train.csv')
     all_playlists = list(set(all_playlists['playlist_id']))
     target_playlists = list(target_playlists['playlist_id'])
 
@@ -107,14 +107,14 @@ def split_dataset(URM_all):
 class DataReader(object):
 
     def __init__(self, file_path, split_train_test=False, train_test_ratio=0.8):
-        self.URM_all = load_train("./data/" + file_path)
+        self.URM_all = load_train("../data/" + file_path)
         self.URM_all = self.URM_all.tocsr()
 
         if split_train_test:
             [self.URM_train , self.URM_test] = split_dataset(self.URM_all)
     def build_icm(self, file_path):
 
-        ICM_all = load_track_attributes("./data/" + file_path)
+        ICM_all = load_track_attributes("../data/" + file_path)
         return ICM_all
 
 

@@ -3,10 +3,9 @@ from src.recommender import *
 from src.metrics import *
 import pandas as pd
 import time
-from src.BPR_Sampling import *
-from src.SLIM_BPR_Python import *
 import matplotlib.pyplot as plt
-
+#from src.SLIM_BPR_Recommender import *
+from src.SLIM_BPR_Cython import SLIM_BPR_Cython
 
 dr = DataReader("train.csv", split_train_test=True)
 URM_all = dr.URM_all
@@ -14,13 +13,12 @@ URM_train = dr.URM_train
 URM_test = dr.URM_test
 
 ICM_all = dr.build_icm("tracks.csv");
-file2 = pd.read_csv("./data/target_playlists.csv")
+file2 = pd.read_csv("../data/target_playlists.csv")
 target_playlist = list(file2['playlist_id'])
 
-start_time = time.time()
 
-#ItemCF = ItemBasedCollaborativeRS(URM_train)
-#ItemCF.fit(top_k=50,shrink=50)
+# ItemCF = ItemBasedCollaborativeRS(URM_train)
+# ItemCF.fit(top_k=50,shrink=50)
 #evaluate_algorithm(URM_test,ItemCF)
 
 #make_recommendations(ItemCF,target_playlist,URM_train)
@@ -49,10 +47,12 @@ start_time = time.time()
 # Sampling = BPR_Sampling(URM_train)
 # A = Sampling.sampleTriple()
 
-BPR = SLIM_BPR_Python(URM_train)
-BPR.fit(30)
+start_time = time.time()
+
+BPR = SLIM_BPR_Cython(URM_train, recompile_cython=False, positive_threshold=4, sparse_weights=True)
+
+BPR.fit(epochs=3, batch_size=1, sgd_mode='sgd', learning_rate=1e-3)
 
 evaluate_algorithm(URM_test, BPR)
-
 
 print("Total time: {}".format(time.time() - start_time))
