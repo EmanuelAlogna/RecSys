@@ -13,6 +13,7 @@ import numpy as np
 import scipy.sparse as sps
 from scipy.special import expit
 
+from src.metrics import *
 
 
 
@@ -229,7 +230,6 @@ class SLIM_BPR_Python(BPR_Sampling):
     def __init__(self, URM_train, positive_threshold=3, sparse_weights = False):
         super(SLIM_BPR_Python, self).__init__()
 
-
         self.URM_train = URM_train
         self.n_users = URM_train.shape[0]
         self.n_items = URM_train.shape[1]
@@ -437,15 +437,17 @@ class SLIM_BPR_Python(BPR_Sampling):
 
                 print("Evaluation begins")
 
+                evaluate_algorithm(URM_test, self)
 
-                results_run = self.evaluateRecommendations(URM_test,
-                                                           minRatingsPerUser=minRatingsPerUser)
-
-                self.writeCurrentConfig(currentEpoch, results_run, logFile)
-
-                print("Epoch {} of {} complete in {:.2f} minutes".format(currentEpoch, epochs,
-                                                                     float(time.time() - start_time_epoch) / 60))
-
+                #
+                # results_run = self.evaluateRecommendations(URM_test,
+                #                                            minRatingsPerUser=minRatingsPerUser)
+                #
+                # self.writeCurrentConfig(currentEpoch, results_run, logFile)
+                #
+                # print("Epoch {} of {} complete in {:.2f} minutes".format(currentEpoch, epochs,
+                #                                                      float(time.time() - start_time_epoch) / 60))
+                #
 
             # Fit with no validation
             else:

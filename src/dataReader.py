@@ -103,19 +103,49 @@ def split_dataset(URM_all):
     return URM_train, URM_test
 
 
+def split_dataset_random(URM_all):
+    num_interactions = URM_all.nnz
+    file = pd.read_csv('../data/train.csv')
+    list_playlist = file['playlist_id'].T
+    list_tracks = file['track_id'].T
+    ratings = np.ones(num_interactions)
+    train_mask = np.random.choice([True,False], num_interactions, p=[0.8, 0.2])
+    URM_train = sps.coo_matrix((ratings[train_mask], (list_playlist[train_mask], list_tracks[train_mask])))
+    URM_train = URM_train.tocsr()
+    train_mask = np.logical_not(train_mask)
+    URM_test = sps.coo_matrix((ratings[train_mask], (list_playlist[train_mask], list_tracks[train_mask])))
+    URM_test = URM_test.tocsr()
+    return URM_train,URM_test
+
+
+def split_train_validation(URM_train,train_val_ratio):
+    numInteractions = URM_train.nnz
+    train_mask = np.random.choice([True,False], numInteractions, p=[train_val_ratio, 1-train_val_ratio])
+    URM_val = URM_train.copy()
+    URM_train.data = URM_train.data * train_mask
+    URM_val.data = URM_val.data * np.logical_not(train_mask)
+    URM_train.eliminate_zeros()
+    URM_val.eliminate_zeros()
+    return URM_train,URM_val
+
+
+
+
+
 
 class DataReader(object):
 
-    def __init__(self, file_path, split_train_test=False, train_test_ratio=0.8):
+    def __init__(self, file_path, split_train_test=False, train_test_ratio=0.8,
+                 build_validation = False,train_validation_ratio=0.7 ):
         self.URM_all = load_train("../data/" + file_path)
         self.URM_all = self.URM_all.tocsr()
 
         if split_train_test:
             [self.URM_train , self.URM_test] = split_dataset(self.URM_all)
+
+        if build_validation:
+            [self.URM_train,self.URM_validation] = split_train_validation(self.URM_train,train_validation_ratio)
     def build_icm(self, file_path):
 
         ICM_all = load_track_attributes("../data/" + file_path)
         return ICM_all
-
-
-

@@ -6,6 +6,7 @@ import time
 import matplotlib.pyplot as plt
 #from src.SLIM_BPR_Recommender import *
 from src.SLIM_BPR_Cython import SLIM_BPR_Cython
+import scipy.sparse as sps
 
 dr = DataReader("train.csv", split_train_test=True)
 URM_all = dr.URM_all
@@ -42,17 +43,27 @@ target_playlist = list(file2['playlist_id'])
 # plt.xlabel('Shrink')
 # plt.show()
 
-#
-
 # Sampling = BPR_Sampling(URM_train)
 # A = Sampling.sampleTriple()
 
 start_time = time.time()
-
-BPR = SLIM_BPR_Cython(URM_train, recompile_cython=False, positive_threshold=4, sparse_weights=True)
-
-BPR.fit(epochs=3, batch_size=1, sgd_mode='sgd', learning_rate=1e-3)
-
+#
+BPR = SLIM_BPR_Cython(URM_train, recompile_cython=False,positive_threshold=1,train_with_sparse_weights=False,final_model_sparse_weights=True)
+BPR.fit(epochs=5, batch_size=1, sgd_mode='adagrad',topK=1000, learning_rate=0.1,lambda_i=0.001,lambda_j=0.001)
 evaluate_algorithm(URM_test, BPR)
+
+# x_tick = [4,5,6,7]
+# # #shrink_tick = [0,10,50,100,200,500]
+# MAP_per_k = []
+# for k in x_tick:
+#     BPR.fit(epochs=k, batch_size=1, sgd_mode='adagrad',topK=200, learning_rate=0.1,lambda_i=0.001,lambda_j=0.001)
+#     print("K:" + str(k) )
+#     result = evaluate_algorithm(URM_test, BPR)
+#     MAP_per_k.append(result)
+
+plt.plot(x_tick, MAP_per_k)
+plt.ylabel('MAP')
+plt.xlabel('topK')
+plt.show()
 
 print("Total time: {}".format(time.time() - start_time))
