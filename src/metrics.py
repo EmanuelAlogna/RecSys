@@ -16,9 +16,12 @@ def recall(recommended_items, relevant_items):
 
 def mean_avg_precision(recommended_items, relevant_items):
     is_relevant = np.in1d(recommended_items, relevant_items, assume_unique=True)
+    #print('is relevant {}'.format(is_relevant))
     p_at_k = is_relevant * np.cumsum(is_relevant, dtype=np.float32) / (1 + np.arange(is_relevant.shape[0]))
+    #print('p_at_k : {}'.format(p_at_k))
     map_score = np.sum(p_at_k) / np.min([relevant_items.shape[0], is_relevant.shape[0]])
-
+    # print('map score {}'.format(map_score))
+    # print('\n')
     return map_score
 
 
@@ -35,13 +38,15 @@ def evaluate_algorithm(URM_test, recommender_object):
             print("User {} of {}".format(user_id,n_users))
         relevant_items = URM_test[user_id].indices
         #tracks in the test set per each playlist
-
+        # print('user {}'.format(user_id))
+        # print('relevant items: {}'.format(relevant_items))
         if len(relevant_items) > 0:
             recommended_item = recommender_object.recommend(user_id,at = 10)
             num_eval += 1
 
             cumulative_precision += precision(recommended_item, relevant_items)
             cumulative_recall += recall(recommended_item, relevant_items)
+            #print("Recommended items: {}".format(recommended_item))
             cumulative_map += mean_avg_precision(recommended_item, relevant_items)
 
     cumulative_precision /= num_eval
@@ -53,7 +58,7 @@ def evaluate_algorithm(URM_test, recommender_object):
     return cumulative_map
 
 
-def make_recommendations(recommender, target_playlists, URM_train):
+def make_recommendations(recommender, target_playlists):
     #recommender.fit(top_k= 50 , shrink=50)
     output_file = open("../data/sample_sumbission.csv", "w")
     output_file.write("playlist_id,track_ids\n")

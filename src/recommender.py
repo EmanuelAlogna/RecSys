@@ -105,7 +105,6 @@ class ItemBasedCollaborativeRS(object):
         # RECOMMENDATION USING COSINE OF SIMILARITY IMPLEMENTED WITH CYTHON
         similarity_object = Cosine_Similarity(self.URM, top_k, shrink)
         self.sim_matrix = similarity_object.compute_similarity()
-        print(self.sim_matrix)
 
 
     def recommend(self, user_id, at=None, exclude_seen = True):

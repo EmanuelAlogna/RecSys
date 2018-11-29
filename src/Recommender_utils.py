@@ -53,8 +53,9 @@ def similarityMatrixTopK(item_weights, forceSparseOutput = True, k=100, verbose 
     sparse_weights = not isinstance(item_weights, np.ndarray)
 
     if not sparse_weights:
-
+        print("Sort started")
         idx_sorted = np.argsort(item_weights, axis=0)  # sort data inside each column
+        print("Sort ended")
 
         if inplace:
             W = item_weights

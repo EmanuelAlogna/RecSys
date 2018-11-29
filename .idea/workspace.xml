@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7b34739-0e01-45c1-a6cd-022e6bd4e8ef" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython_Epoch.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython_Epoch.cpython-37m-darwin.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython_Epoch.pyx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython_Epoch.pyx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cython/build/temp.macosx-10.7-x86_64-3.7/SLIM_BPR_Cython_Epoch.o" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cython/build/temp.macosx-10.7-x86_64-3.7/SLIM_BPR_Cython_Epoch.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Recommender_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Recommender_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SLIM_BPR_Cython.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/SLIM_BPR_Cython.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SLIM_BPR_Python.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/SLIM_BPR_Python.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dataReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataReader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/metrics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recommender.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/recommender.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +21,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/RecSys$test_set.coverage" NAME="test_set Coverage Results" MODIFIED="1541867080264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/RecSys$prova.coverage" NAME="prova Coverage Results" MODIFIED="1540933986938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/RecSys$main.coverage" NAME="main Coverage Results" MODIFIED="1542897531092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/RecSys$main.coverage" NAME="main Coverage Results" MODIFIED="1543495025730" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/RecSys$prova_main.coverage" NAME="prova_main Coverage Results" MODIFIED="1541859237523" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Cython" />
     <SUITE FILE_PATH="coverage/RecSys$Cython_pyx.coverage" NAME="Cython.pyx Coverage Results" MODIFIED="1541857748334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/RecSys$Similarity.coverage" NAME="Similarity Coverage Results" MODIFIED="1540902097048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
@@ -31,62 +30,63 @@
     <session id="-1616372495">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="18" />
+          <entry key="project.closed" value="20" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="4" />
           <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.13" value="3" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="19" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="68" />
           <entry key="csv" value="9" />
-          <entry key="py" value="22265" />
-          <entry key="pyx" value="213" />
+          <entry key="py" value="28875" />
+          <entry key="pyx" value="1398" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Cython" value="164" />
+          <entry key="Cython" value="1349" />
           <entry key="PLAIN_TEXT" value="9" />
-          <entry key="Python" value="22382" />
+          <entry key="Python" value="28992" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="c" value="3" />
-          <entry key="csv" value="25" />
+          <entry key="c" value="4" />
+          <entry key="csv" value="30" />
           <entry key="pxd" value="2" />
-          <entry key="py" value="101" />
-          <entry key="pyx" value="25" />
+          <entry key="py" value="145" />
+          <entry key="pyx" value="29" />
+          <entry key="txt" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C++" value="3" />
-          <entry key="Cython" value="25" />
-          <entry key="PLAIN_TEXT" value="25" />
-          <entry key="Python" value="103" />
+          <entry key="C++" value="4" />
+          <entry key="Cython" value="29" />
+          <entry key="PLAIN_TEXT" value="33" />
+          <entry key="Python" value="147" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="54" selection-start-line="54" selection-start-column="2" selection-end-line="61" selection-end-column="30" />
+            <state relative-caret-position="990">
+              <caret line="197" column="6" selection-start-line="197" selection-end-line="197" selection-end-column="6" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -95,25 +95,83 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython_Epoch.pyx">
+        <entry file="file://$PROJECT_DIR$/src/Evaluation/Incremental_Training_Early_Stopping.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4619">
-              <caret line="258" column="81" selection-start-line="258" selection-start-column="77" selection-end-line="258" selection-end-column="81" />
+            <state relative-caret-position="84">
+              <caret line="113" selection-start-line="113" selection-end-line="113" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Evaluation/Evaluator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="358" selection-start-line="358" selection-end-line="358" />
               <folding>
-                <element signature="e#340#408#0" expanded="true" />
+                <element signature="e#111#129#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/SLIM_BPR_Cython.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+              <folding>
+                <element signature="e#110#150#0" expanded="true" />
+                <marker date="1543488777068" expanded="true" signature="6062:6679" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SLIM_BPR_Cython.py">
+        <entry file="file://$PROJECT_DIR$/src/SimilarityMatrixRecommender.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="10" column="45" lean-forward="true" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+            <state relative-caret-position="280">
+              <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Recommender2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
               <folding>
-                <marker date="1542895413981" expanded="true" signature="6798:7006" ph="..." />
+                <element signature="e#91#109#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ParameterTuning/BayesianSearch.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="93">
+              <caret line="228" selection-start-line="228" selection-end-line="228" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/bayes_opt/target_space.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="93">
+              <caret line="190" selection-start-line="190" selection-end-line="190" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/metrics.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -129,36 +187,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>run_epoc</find>
-      <find>sgd_m</find>
-      <find>recommend(</find>
-      <find>sparse_we</find>
-      <find>W_spa</find>
-      <find>w_sparse</find>
-      <find>final_mod</find>
-      <find>self.sparse</find>
-      <find>train_wit</find>
-      <find>sparse</find>
-      <find>final</find>
-      <find>recomme</find>
-      <find>remove</find>
-      <find>for</find>
-      <find>for</find>
-      <find>eval</find>
-      <find>epoch</find>
-      <find>self.URM_eval</find>
-      <find>self.W</find>
-      <find>train</find>
-      <find>indic</find>
-      <find>gamma</find>
-      <find>URM_val</find>
-      <find>similarity</find>
-      <find>sel</find>
+      <find>similari</find>
+      <find>W_init</find>
+      <find>normalize</find>
+      <find>get_s_i</find>
       <find>top</find>
-      <find>recommen</find>
-      <find>beta</find>
-      <find>evalua</find>
+      <find>topk</find>
+      <find>final</find>
+      <find>W_ini</find>
+      <find>partial_</find>
+      <find>30473</find>
+      <find>sample</find>
+      <find>is_</find>
+      <find>prin</find>
+      <find>print</find>
+      <find>recommended</find>
+      <find>map</find>
+      <find>bayesianop</find>
+      <find>n_cas</find>
+      <find>target</find>
+      <find>cutoff</find>
+      <find>initializ</find>
       <find>recommend</find>
+      <find>RECOMMEND</find>
+      <find>compute_ite</find>
+      <find>compute_itx</find>
+      <find>epochs</find>
+      <find>lower</find>
+      <find>epoch</find>
+      <find>learn</find>
+      <find>n_case</find>
     </findStrings>
     <replaceStrings>
       <replace>URM_train</replace>
@@ -190,9 +248,7 @@
         <option value="$PROJECT_DIR$/src/Similarity.py" />
         <option value="$PROJECT_DIR$/src/Cython/Cython_prova.pyx" />
         <option value="$PROJECT_DIR$/src/Cython/Cosine_Similarity_Cython.pyx" />
-        <option value="$PROJECT_DIR$/src/recommender.py" />
         <option value="$PROJECT_DIR$/src/BRP_Cython/SLIM_BPR_Cython_Epoch.pyx" />
-        <option value="$PROJECT_DIR$/src/Recommender_utils.py" />
         <option value="$PROJECT_DIR$/src/BRP_Cython/compileCython2.py" />
         <option value="$PROJECT_DIR$/src/BRP_Cython/SLIM_BPR_Cython.py" />
         <option value="$PROJECT_DIR$/src/Base/SImilarity_Matrix_Recommender.py" />
@@ -202,10 +258,21 @@
         <option value="$PROJECT_DIR$/src/BPR_Sampling.py" />
         <option value="$PROJECT_DIR$/src/SLIM_BPR_Recommender.py" />
         <option value="$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython_Epoch2.pyx" />
-        <option value="$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython_Epoch.pyx" />
+        <option value="$PROJECT_DIR$/src/SLIM_BPR_Cython2.pyx" />
+        <option value="$PROJECT_DIR$/src/Recommender_utils.py" />
         <option value="$PROJECT_DIR$/src/SLIM_BPR_Python.py" />
+        <option value="$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython2.pyx" />
+        <option value="$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython_Epoch.pyx" />
+        <option value="$PROJECT_DIR$/src/SLIM_BPR_ElasticNet.py" />
         <option value="$PROJECT_DIR$/src/metrics.py" />
+        <option value="$PROJECT_DIR$/src/recommender.py" />
         <option value="$PROJECT_DIR$/src/dataReader.py" />
+        <option value="$PROJECT_DIR$/src/Recommender.2py.py" />
+        <option value="$PROJECT_DIR$/src/ItemKNNCFRecommender.py" />
+        <option value="$PROJECT_DIR$/src/Recommender2.py" />
+        <option value="$PROJECT_DIR$/src/ParameterTuning/AbstractClassSearch.py" />
+        <option value="$PROJECT_DIR$/src/Evaluation/Evaluator.py" />
+        <option value="$PROJECT_DIR$/src/ParameterTuning/BayesianSearch.py" />
         <option value="$PROJECT_DIR$/src/SLIM_BPR_Cython.py" />
         <option value="$PROJECT_DIR$/src/main.py" />
       </list>
@@ -220,7 +287,10 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="728" />
+    <option name="height" value="732" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -248,7 +318,7 @@
               <item name="RecSys" type="b2602c69:ProjectViewProjectNode" />
               <item name="RecSys" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Cython" type="462c0819:PsiDirectoryNode" />
+              <item name="ParameterTuning" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -258,16 +328,18 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="mode&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Evaluation" />
+      <recent name="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master" />
+      <recent name="$PROJECT_DIR$/src/ParameterTuning" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/SLIM BPR" />
       <recent name="$PROJECT_DIR$/src/Cython" />
-      <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -423,22 +495,31 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="728" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="732" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49886104" visible="true" weight="0.11793215" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49886104" visible="true" weight="0.2641357" />
       <window_info id="Structure" order="1" sideWeight="0.5011389" side_tool="true" weight="0.1453958" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32861635" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49919224" visible="true" weight="0.38207546" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.328125" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49919224" visible="true" weight="0.2640625" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39937106" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3296875" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49919224" weight="0.36477986" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49919224" weight="0.3296875" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50080776" side_tool="true" weight="0.32861635" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32861635" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -447,8 +528,31 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="right" id="SciView" order="4" weight="0.39579967" />
+      <window_info anchor="right" id="SciView" order="4" weight="0.45153475" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49886104" visible="true" weight="0.21567044" />
+      <window_info id="Structure" order="1" sideWeight="0.5011389" side_tool="true" weight="0.1453958" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.328125" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919224" visible="true" weight="0.334375" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39937106" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3296875" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49919224" weight="0.3296875" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50080776" side_tool="true" weight="0.32861635" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32861635" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="SciView" order="4" weight="0.45153475" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -457,65 +561,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/python_stubs/920791573/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="4164" column="8" selection-start-line="4164" selection-start-column="8" selection-end-line="4164" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/prova.py" />
-    <entry file="file://$USER_HOME$/.conda/envs/RecSys/lib/python3.6/site-packages/numpy/core/fromnumeric.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1420">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Compute_Similarity_Cython.pyx" />
-    <entry file="file://$PROJECT_DIR$/src/Cython.c" />
-    <entry file="file://$PROJECT_DIR$/src/Cython.pyx" />
-    <entry file="file://$PROJECT_DIR$/src/build/prova.pyx" />
-    <entry file="file://$PROJECT_DIR$/src/prova.pyx" />
-    <entry file="file://$PROJECT_DIR$/src/Cython/prova.pyx" />
-    <entry file="file://$PROJECT_DIR$/src/test_set.py" />
-    <entry file="file://$PROJECT_DIR$/data/target_playlists.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="818">
-          <caret line="5001" column="1" selection-start-line="5001" selection-start-column="1" selection-end-line="5001" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cython/Cosine_Similarity_Cython.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/.pyxbld/temp.macosx-10.7-x86_64-3.6/pyrex/src/Cython/Cosine_Similarity_Cython.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="609" selection-start-line="609" selection-end-line="609" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.conda/envs/RecSys/lib/python3.6/distutils/unixccompiler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="117" selection-start-line="117" selection-end-line="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cython/compileCython_prova.py" />
-    <entry file="file://$PROJECT_DIR$/src/Cython/prova_main.py" />
-    <entry file="file://$PROJECT_DIR$/src/Cython/Cosine_Similarity_Cython_Shrink.pyx" />
-    <entry file="file://$PROJECT_DIR$/src/Cython/Cosine_Similarity_Cython_prova.pyx" />
-    <entry file="file://$PROJECT_DIR$/src/Similarity.py" />
-    <entry file="file://$USER_HOME$/.conda/envs/RecSys/lib/python3.6/site-packages/scipy/sparse/csc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3320">
-          <caret line="166" selection-start-line="166" selection-end-line="166" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/sample_sumbission.csv" />
     <entry file="file://$PROJECT_DIR$/src/Cython/compileCython.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -525,13 +570,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cython/cosine_prova.pyx" />
     <entry file="file://$PROJECT_DIR$/src/Cython/Cython_prova.pyx" />
-    <entry file="file://$PROJECT_DIR$/src/Cython/Cosine_Similarity_Cython.pyx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="405" column="22" lean-forward="true" selection-start-line="405" selection-start-column="22" selection-end-line="405" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BRP_Cython/compileCython2.py" />
     <entry file="file://$PROJECT_DIR$/src/Base/metrics.py" />
     <entry file="file://$PROJECT_DIR$/src/Base/SImilarity_Matrix_Recommender.py" />
@@ -590,23 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SLIM_BPR_Python.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="532" column="59" selection-start-line="532" selection-start-column="59" selection-end-line="532" selection-end-column="59" />
-          <folding>
-            <element signature="e#115#125#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/train.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-24235008">
-          <caret line="35" column="6" selection-start-line="35" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.conda/envs/RecSys/lib/python3.6/site-packages/scipy/sparse/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
@@ -614,65 +635,250 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataReader.py">
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/python_stubs/920791573/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="143" column="60" selection-start-line="143" selection-start-column="60" selection-end-line="143" selection-end-column="60" />
+        <state relative-caret-position="55740">
+          <caret line="2787" column="6" selection-start-line="2787" selection-start-column="6" selection-end-line="2787" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/target_playlists.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100020">
+          <caret line="5001" column="1" selection-start-line="5001" selection-start-column="1" selection-end-line="5001" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/RecSys/lib/python3.6/site-packages/scipy/sparse/dok.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="140" column="8" selection-start-line="140" selection-start-column="8" selection-end-line="140" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.pyxbld/temp.macosx-10.7-x86_64-3.6/pyrex/src/Cython/SLIM_BPR_Cython2.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="4551" selection-start-line="4551" selection-end-line="4551" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/RecSys/lib/python3.6/site-packages/scipy/odr/odrpack.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="432" column="6" selection-start-line="432" selection-start-column="6" selection-end-line="432" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Recommender_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1540">
+          <caret line="86" column="28" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SLIM_BPR_Python.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <marker date="1542881535614" expanded="true" signature="3649:4285" ph="..." />
-            <marker date="1542881535614" expanded="true" signature="4339:4719" ph="..." />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/metrics.py">
+    <entry file="file://$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython2.pyx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="969">
+          <caret line="159" column="24" selection-start-line="159" selection-start-column="24" selection-end-line="159" selection-end-column="24" />
+          <folding>
+            <element signature="e#64#132#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/recommender.py">
+    <entry file="file://$USER_HOME$/.conda/envs/RecSys/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="85" column="23" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
+        <state relative-caret-position="799">
+          <caret line="652" column="8" selection-start-line="652" selection-start-column="8" selection-end-line="652" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SLIM_BPR_ElasticNet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="142" column="39" selection-start-line="142" selection-start-column="39" selection-end-line="142" selection-end-column="39" />
+          <folding>
+            <element signature="e#83#101#0" expanded="true" />
+            <marker date="1543357254729" expanded="true" signature="6400:6444" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython_Epoch.pyx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4619">
-          <caret line="258" column="81" selection-start-line="258" selection-start-column="77" selection-end-line="258" selection-end-column="81" />
+        <state relative-caret-position="-172">
+          <caret line="414" column="20" selection-start-line="414" selection-start-column="20" selection-end-line="414" selection-end-column="20" />
           <folding>
             <element signature="e#340#408#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SLIM_BPR_Cython.py">
+    <entry file="file://$PROJECT_DIR$/src/dataReader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="10" column="45" lean-forward="true" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+        <state relative-caret-position="189">
+          <caret line="137" column="4" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="4" />
           <folding>
-            <marker date="1542895413981" expanded="true" signature="6798:7006" ph="..." />
+            <element signature="e#0#19#0" expanded="true" />
+            <marker date="1543419337544" expanded="true" signature="3715:4350" ph="..." />
+            <marker date="1543419337544" expanded="true" signature="4350:4351" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Recommender_utils.py">
+    <entry file="file://$PROJECT_DIR$/data/train.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1661">
-          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+        <state relative-caret-position="315">
+          <caret line="70" column="1" selection-start-line="60" selection-end-line="70" selection-end-column="1" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cython/Cosine_Similarity_Cython.pyx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6087">
+          <caret line="330" column="21" selection-start-line="330" selection-start-column="16" selection-end-line="330" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Recommender.2py.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="191" selection-end-line="244" />
+          <folding>
+            <element signature="e#91#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ItemKNNCFRecommender.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding>
+            <element signature="e#111#151#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recommender.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/result_experiments/ItemKNNCFRecommender_BayesianSearch.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/metrics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/bayes_opt/bayesian_optimization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-564">
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ParameterTuning/AbstractClassSearch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2486">
+          <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/bayes_opt/target_space.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="190" selection-start-line="190" selection-end-line="190" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ParameterTuning/BayesianSearch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="228" selection-start-line="228" selection-end-line="228" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Recommender2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
+          <folding>
+            <element signature="e#91#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SimilarityMatrixRecommender.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Evaluation/Incremental_Training_Early_Stopping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="113" selection-start-line="113" selection-end-line="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Evaluation/Evaluator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="358" selection-start-line="358" selection-end-line="358" />
+          <folding>
+            <element signature="e#111#129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/result_experiments/SLIM_BPR_Recommender_BayesianSearch.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="54" selection-start-line="54" selection-start-column="2" selection-end-line="61" selection-end-column="30" />
+        <state relative-caret-position="990">
+          <caret line="197" column="6" selection-start-line="197" selection-end-line="197" selection-end-column="6" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SLIM_BPR_Cython.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+          <folding>
+            <element signature="e#110#150#0" expanded="true" />
+            <marker date="1543488777068" expanded="true" signature="6062:6679" ph="..." />
           </folding>
         </state>
       </provider>
