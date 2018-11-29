@@ -52,7 +52,6 @@ cdef class SLIM_BPR_Cython_Epoch:
     cdef Triangular_Matrix S_symmetric
     cdef double[:,:] S_dense
 
-
     # Adaptive gradient
 
     cdef int useAdaGrad, useRmsprop, useAdam
@@ -86,7 +85,6 @@ cdef class SLIM_BPR_Cython_Epoch:
         self.lj_reg = lj_reg
         self.batch_size = batch_size
 
-
         if train_with_sparse_weights:
             symmetric = False
 
@@ -100,12 +98,11 @@ cdef class SLIM_BPR_Cython_Epoch:
 
         if self.train_with_sparse_weights:
             self.S_sparse = Sparse_Matrix_Tree_CSR(self.n_items, self.n_items)
-
         elif self.symmetric:
             self.S_symmetric = Triangular_Matrix(self.n_items, isSymmetric = True)
+
         else:
             self.S_dense = np.zeros((self.n_items, self.n_items), dtype=np.float64)
-
 
         self.useAdaGrad = False
         self.useRmsprop = False
@@ -142,6 +139,11 @@ cdef class SLIM_BPR_Cython_Epoch:
             raise ValueError(
                 "SGD_mode not valid. Acceptable values are: 'sgd', 'adagrad', 'rmsprop', 'adam'. Provided value was '{}'".format(
                     sgd_mode))
+
+
+
+
+
 
 
     def __dealloc__(self):
