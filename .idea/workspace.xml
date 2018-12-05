@@ -1,71 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7b34739-0e01-45c1-a6cd-022e6bd4e8ef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BPR_Sampling.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cython/Cosine_Similarity_Cython.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cython/Cosine_Similarity_Cython.cpython-37m-darwin.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython2.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython2.cpython-37m-darwin.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython2.pyx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython_Epoch.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython_Epoch.cpython-37m-darwin.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython_Epoch.pyx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cython/SLIM_BPR_Cython_Epoch.pyx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cython/build/temp.macosx-10.7-x86_64-3.7/Cosine_Similarity_Cython.o" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cython/build/temp.macosx-10.7-x86_64-3.7/Cosine_Similarity_Cython.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cython/build/temp.macosx-10.7-x86_64-3.7/SLIM_BPR_Cython_Epoch.o" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cython/build/temp.macosx-10.7-x86_64-3.7/SLIM_BPR_Cython_Epoch.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Evaluation/Evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Evaluator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Evaluation/Incremental_Training_Early_Stopping.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Incremental_Training_Early_Stopping.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Evaluation/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/metrics2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/AbstractClassSearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/AbstractClassSearch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/.coveragerc" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/.coveragerc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/bayes_opt/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/bayes_opt/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/bayes_opt/bayesian_optimization.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/bayes_opt/bayesian_optimization.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/bayes_opt/event.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/bayes_opt/event.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/bayes_opt/observer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/bayes_opt/observer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/bayes_opt/target_space.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/bayes_opt/target_space.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/bayes_opt/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/bayes_opt/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/examples/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/examples/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/examples/advanced-tour.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/examples/advanced-tour.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/examples/async_optimization.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/examples/async_optimization.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/examples/basic-tour.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/examples/basic-tour.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/examples/bayesian_optimization.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/examples/bayesian_optimization.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/examples/bo_example.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/examples/bo_example.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/examples/exploitation_vs_exploration.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/examples/exploitation_vs_exploration.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/examples/sklearn_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/examples/sklearn_example.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/examples/visualization.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/examples/visualization.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/pytest.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/pytest.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/setup.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/tests/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/tests/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/tests/test_acceptance.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/tests/test_acceptance.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/tests/test_bayesian_optimization.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/tests/test_bayesian_optimization.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/tests/test_logs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/tests/test_logs.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/tests/test_observer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/tests/test_observer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/tests/test_queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/tests/test_queue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/tests/test_target_space.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/tests/test_target_space.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianOptimization_master/tests/test_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianOptimization_master/tests/test_util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/BayesianSearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/BayesianSearch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParameterTuning/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Recommender2.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Recommender2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SLIM_BPR_Cython.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/SLIM_BPR_Cython.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SLIM_BPR_ElasticNet.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SimilarityMatrixRecommender.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimilarityMatrixRecommender.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/metrics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/recommender.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/recommender.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/result_experiments/SLIM_BPR_Recommender_BayesianSearch.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/result_experiments/SLIM_BPR_Recommender_BayesianSearch.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/result_experiments/SLIM_BPR_Recommender_best_model" beforeDir="false" afterPath="$PROJECT_DIR$/src/result_experiments/SLIM_BPR_Recommender_best_model" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/result_experiments/SLIM_BPR_Recommender_best_parameters" beforeDir="false" afterPath="$PROJECT_DIR$/src/result_experiments/SLIM_BPR_Recommender_best_parameters" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/result_experiments/SLIM_BPR_Recommender_best_result_test" beforeDir="false" afterPath="$PROJECT_DIR$/src/result_experiments/SLIM_BPR_Recommender_best_result_test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/result_experiments/SLIM_BPR_Recommender_best_result_validation" beforeDir="false" afterPath="$PROJECT_DIR$/src/result_experiments/SLIM_BPR_Recommender_best_result_validation" afterDir="false" />
-    </list>
+    <list default="true" id="a7b34739-0e01-45c1-a6cd-022e6bd4e8ef" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +78,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
+            <state relative-caret-position="-173">
               <caret line="166" column="28" selection-start-line="166" selection-start-column="28" selection-end-line="166" selection-end-column="28" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -263,7 +199,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="732" />
@@ -484,21 +420,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="732" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1280" height="732" extended-state="1" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49886104" visible="true" weight="0.1825525" />
       <window_info id="Structure" order="1" sideWeight="0.5011389" side_tool="true" weight="0.1453958" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.328125" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49919224" visible="true" weight="0.3109375" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919224" weight="0.3109375" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39937106" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3296875" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49919224" weight="0.415625" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49919224" visible="true" weight="0.415625" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50080776" side_tool="true" weight="0.32861635" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32861635" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -824,7 +759,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
+        <state relative-caret-position="-173">
           <caret line="166" column="28" selection-start-line="166" selection-start-column="28" selection-end-line="166" selection-end-column="28" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />

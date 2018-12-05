@@ -1232,7 +1232,6 @@ cdef class Triangular_Matrix:
         self.row_pointer = <double **> PyMem_Malloc(self.num_rows * sizeof(double*))
 
         for numRow in range(self.num_rows):
-            #print('iter: {}'.format(numRow))
             index = 0
             self.row_pointer[numRow] = < double *> PyMem_Malloc((numRow+1) * sizeof(double))
             row_start = SIM.indptr[numRow]
@@ -1240,22 +1239,12 @@ cdef class Triangular_Matrix:
             row_columns = SIM.indices[row_start:row_end]
             row_columns = np.array([x for x in row_columns if x <= numRow],dtype=np.int32)
             data = SIM.data[row_start:row_end]
-            #print('row columns: {}'.format(row_columns))
-            #print('numRow+1: {}'.format(numRow+1))
             for numCol in range(numRow+1):
-               #print('numCol {}'.format(numCol))
                 self.row_pointer[numRow][numCol] = 0.0
 
             for col in range(len(row_columns)):
-                # print('a')
-                # print('len: {}'.format(len(row_columns)))
-                # print('col: {}'.format(row_columns[col]))
-
                 self.row_pointer[numRow][row_columns[col]] = data[index]
                 index = index + 1
-
-            # print('\n')
-            # print('\n')
 
     def dealloc(self):
         """
