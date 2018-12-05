@@ -190,7 +190,7 @@ class Recommender(object):
         warnings.warn("DEPRECATED! Use Base.Evaluation.SequentialEvaluator.evaluateRecommendations()", DeprecationWarning)
 
 
-        from src.Evaluation.Evaluator import SequentialEvaluator
+        from src.Evaluator import SequentialEvaluator
 
         evaluator = SequentialEvaluator(URM_test, [at], exclude_seen= exclude_seen,
                                         minRatingsPerUser=minRatingsPerUser,

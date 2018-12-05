@@ -2,7 +2,7 @@ import numpy as np
 from src.Compute_Similarity_Python import *
 import pyximport
 pyximport.install()
-from src.Cython.Cosine_Similarity_Cython import *
+from src.Cython.Cosine_Similarity_Cython import Cosine_Similarity
 
 
 class RandomRecommender(object):
@@ -105,9 +105,9 @@ class ItemBasedCollaborativeRS(object):
         # RECOMMENDATION USING COSINE OF SIMILARITY IMPLEMENTED WITH CYTHON
         similarity_object = Cosine_Similarity(self.URM, top_k, shrink)
         self.sim_matrix = similarity_object.compute_similarity()
+        return self.sim_matrix
 
-
-    def recommend(self, user_id, at=None, exclude_seen = True):
+    def recommend2(self, user_id, at=None, exclude_seen = True):
         user_profile = self.URM[user_id]
         scores = user_profile.dot(self.sim_matrix).toarray().ravel()
 

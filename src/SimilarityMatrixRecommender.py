@@ -35,7 +35,7 @@ class SimilarityMatrixRecommender(object):
 
         else:
 
-            assert False
+            #assert False
 
             user_profile = self.URM_train.indices[self.URM_train.indptr[user_id]:self.URM_train.indptr[user_id + 1]]
             user_ratings = self.URM_train.data[self.URM_train.indptr[user_id]:self.URM_train.indptr[user_id + 1]]

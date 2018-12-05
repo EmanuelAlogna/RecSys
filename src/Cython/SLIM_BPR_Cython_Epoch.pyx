@@ -19,6 +19,10 @@ import numpy as np
 cimport numpy as np
 import time
 import sys
+from src.Compute_Similarity_Python import *
+import pyximport
+pyximport.install()
+from src.Cython.Cosine_Similarity_Cython import *
 
 from libc.math cimport exp, sqrt
 from libc.stdlib cimport rand, RAND_MAX
@@ -30,7 +34,6 @@ cdef struct BPR_sample:
     long neg_item
     long seen_items_start_pos
     long seen_items_end_pos
-
 
 
 cdef class SLIM_BPR_Cython_Epoch:
@@ -52,6 +55,7 @@ cdef class SLIM_BPR_Cython_Epoch:
     cdef Triangular_Matrix S_symmetric
     cdef double[:,:] S_dense
 
+
     # Adaptive gradient
 
     cdef int useAdaGrad, useRmsprop, useAdam
@@ -64,8 +68,7 @@ cdef class SLIM_BPR_Cython_Epoch:
     cdef double momentum_1, momentum_2
 
 
-
-    def __init__(self, URM_mask,
+    def __init__(self, URM_mask, SIM,
                  train_with_sparse_weights = False,
                  final_model_sparse_weights = True,
                  learning_rate = 0.01, li_reg = 0.0, lj_reg = 0.0,
@@ -85,6 +88,7 @@ cdef class SLIM_BPR_Cython_Epoch:
         self.lj_reg = lj_reg
         self.batch_size = batch_size
 
+
         if train_with_sparse_weights:
             symmetric = False
 
@@ -95,14 +99,14 @@ cdef class SLIM_BPR_Cython_Epoch:
         self.URM_mask_indices = np.array(URM_mask.indices, dtype=np.int32)
         self.URM_mask_indptr = np.array(URM_mask.indptr, dtype=np.int32)
 
-
         if self.train_with_sparse_weights:
             self.S_sparse = Sparse_Matrix_Tree_CSR(self.n_items, self.n_items)
+
         elif self.symmetric:
-            self.S_symmetric = Triangular_Matrix(self.n_items, isSymmetric = True)
+            self.S_symmetric = Triangular_Matrix(self.n_items, SIM, isSymmetric = True)
 
         else:
-            self.S_dense = np.zeros((self.n_items, self.n_items), dtype=np.float64)
+            self.S_dense = SIM
 
         self.useAdaGrad = False
         self.useRmsprop = False
@@ -141,11 +145,6 @@ cdef class SLIM_BPR_Cython_Epoch:
                     sgd_mode))
 
 
-
-
-
-
-
     def __dealloc__(self):
         """
         Remove all PyMalloc allocaded memory
@@ -164,6 +163,7 @@ cdef class SLIM_BPR_Cython_Epoch:
 
 
     def epochIteration_Cython(self):
+
 
         # Get number of available interactions
         cdef long totalNumberOfBatch = int(self.numPositiveIteractions / self.batch_size) + 1
@@ -199,7 +199,7 @@ cdef class SLIM_BPR_Cython_Epoch:
             # The difference is computed on the user_seen items
 
             index = 0
-            while index <  sample.seen_items_end_pos - sample.seen_items_start_pos:
+            while (index <  sample.seen_items_end_pos - sample.seen_items_start_pos):
 
                 seenItem = self.URM_mask_indices[sample.seen_items_start_pos + index]
                 index +=1
@@ -369,7 +369,7 @@ cdef class SLIM_BPR_Cython_Epoch:
                 self.S_sparse.add_value(index, index, -self.S_sparse.get_value(index, index))
 
             elif self.symmetric:
-                self.S_symmetric.add_value(index, index, -self.S_symmetric.get_value(index, index))
+                self.S_symmetric.add_value(index, index, 0.0)
 
             else:
                 self.S_dense[index, index] = 0.0
@@ -407,9 +407,6 @@ cdef class SLIM_BPR_Cython_Epoch:
                     return similarityMatrixTopK(np.array(self.S_dense.T), k=self.topK, forceSparseOutput=True, inplace=True).T
                 else:
                     return np.array(self.S_dense)
-
-
-
 
 
     cdef BPR_sample sampleBPR_Cython(self):
@@ -1218,13 +1215,15 @@ cdef class Triangular_Matrix:
 
     cdef double** row_pointer
 
+    cdef float[:,:] SIM
 
 
+    def __init__(self, long num_rows, SIM, int isSymmetric = False):
 
-
-    def __init__(self, long num_rows, int isSymmetric = False):
-
-        cdef int numRow, numCol
+        cdef int numRow, numCol, row_start,row_end,col
+        cdef int[:] row_columns,row_columns_list
+        cdef float[:] data
+        cdef int index,x
 
         self.num_rows = num_rows
         self.num_cols = num_rows
@@ -1232,16 +1231,31 @@ cdef class Triangular_Matrix:
 
         self.row_pointer = <double **> PyMem_Malloc(self.num_rows * sizeof(double*))
 
-
-
-        # Initialize all rows to empty
         for numRow in range(self.num_rows):
+            #print('iter: {}'.format(numRow))
+            index = 0
             self.row_pointer[numRow] = < double *> PyMem_Malloc((numRow+1) * sizeof(double))
-
+            row_start = SIM.indptr[numRow]
+            row_end = SIM.indptr[numRow+1]
+            row_columns = SIM.indices[row_start:row_end]
+            row_columns = np.array([x for x in row_columns if x <= numRow],dtype=np.int32)
+            data = SIM.data[row_start:row_end]
+            #print('row columns: {}'.format(row_columns))
+            #print('numRow+1: {}'.format(numRow+1))
             for numCol in range(numRow+1):
+               #print('numCol {}'.format(numCol))
                 self.row_pointer[numRow][numCol] = 0.0
 
+            for col in range(len(row_columns)):
+                # print('a')
+                # print('len: {}'.format(len(row_columns)))
+                # print('col: {}'.format(row_columns[col]))
 
+                self.row_pointer[numRow][row_columns[col]] = data[index]
+                index = index + 1
+
+            # print('\n')
+            # print('\n')
 
     def dealloc(self):
         """

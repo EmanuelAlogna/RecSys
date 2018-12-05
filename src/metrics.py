@@ -41,7 +41,7 @@ def evaluate_algorithm(URM_test, recommender_object):
         # print('user {}'.format(user_id))
         # print('relevant items: {}'.format(relevant_items))
         if len(relevant_items) > 0:
-            recommended_item = recommender_object.recommend(user_id,at = 10)
+            recommended_item = recommender_object.recommend2(user_id,at = 10)
             num_eval += 1
 
             cumulative_precision += precision(recommended_item, relevant_items)
@@ -64,7 +64,7 @@ def make_recommendations(recommender, target_playlists):
     output_file.write("playlist_id,track_ids\n")
 
     for playlist in target_playlists:
-        recommendations = recommender.recommend(playlist,at=10)
+        recommendations = recommender.recommend2(playlist,at=10)
         output_file.write(str(playlist) + ",")
         recommendations.tofile(output_file, sep=" ", format="%s")
         if playlist == target_playlists[-1]:
