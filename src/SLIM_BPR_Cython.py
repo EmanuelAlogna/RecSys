@@ -133,6 +133,7 @@ class SLIM_BPR_Cython(SimilarityMatrixRecommender, Recommender, Incremental_Trai
 
         self.get_S_incremental_and_set_W()
         sys.stdout.flush()
+        return self.W
 
 
     def recommend2(self, user_id, at=None, exclude_seen=True,filter_top_pop= True):

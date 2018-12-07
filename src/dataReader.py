@@ -18,15 +18,37 @@ def load_track_attributes(file_path):
     ICM_row = list(file["track_id"])
     ICM_column1 = list(file["album_id"])
     ICM_column2 = list(file["artist_id"])
+    ICM_column3 = list(file["duration_sec"])
+
+    for i in range(len(ICM_column3)):
+        x = ICM_column3[i]
+        if x < 500:
+            ICM_column3[i] = 1
+        # elif (x >= 50 and x < 500):
+        #     ICM_column3[i] = 2
+        # elif (x >= 300 and x < 500):
+        #    ICM_column3[i] = 2
+        else:
+            ICM_column3[i] = 2
 
     ones = np.ones(len(ICM_row))
 
     a = sps.coo_matrix((ones, (ICM_row, ICM_column1)))
+    #a2 = sps.coo_matrix((0.8*ones, (ICM_row, ICM_column1)))
     b = sps.coo_matrix((ones, (ICM_row, ICM_column2)))
+    #b2 = sps.coo_matrix((0.9*ones, (ICM_row, ICM_column2)))
+    e = sps.coo_matrix((0.15*ones, (ICM_row, ICM_column3)))
     c = hstack([a, b])
-    ICM_all = c.tocsr()
+    d = hstack([c, e])
 
-    return ICM_all
+    #f = hstack([a2, b])
+    #h = hstack([f, e])
+
+    ICM_all = c.tocsr()
+    ICM_all2 = d.tocsr()
+
+
+    return ICM_all,ICM_all2
 
 
 def split_dataset(URM_all,train_test_ratio =0.8):

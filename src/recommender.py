@@ -47,6 +47,7 @@ class ItemCBFKNNRecommender(object):
 
         similarity_object = Cosine_Similarity(self.ICM.T, top_k, shrink)
         self.sim_matrix = similarity_object.compute_similarity()
+        return self.sim_matrix
 
     def recommend(self, user_id , at = None , exclude_seen =True):
         user_profile = self.URM[user_id]

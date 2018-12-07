@@ -13,7 +13,8 @@ from src.ItemKNNCFRecommender import *
 from src.BayesianSearch import *
 import os
 import scipy.sparse as sps
-
+from src.HybridRecommender import *
+from sklearn.preprocessing import normalize
 
 
 dr = DataReader("train.csv", split_train_test=True, build_validation = False)
@@ -25,12 +26,13 @@ print(URM_train.shape)
 #URM_validation = dr.URM_validation
 
 
-ICM_all = dr.build_icm("tracks.csv")
+ICM_all,ICM_all2 = dr.build_icm("tracks.csv")
 file2 = pd.read_csv("../data/target_playlists.csv")
 target_playlist = list(file2['playlist_id'])
 
 
-
+file = pd.read_csv("../data/tracks.csv")
+duration = list(file["duration_sec"])
 
 #######################################################################
 ############################## EVALUATION #############################
@@ -98,7 +100,6 @@ best_parameters = parameterSearch.search(recommenderDictionary,
 
 
 
-#make_recommendations(BPR, target_playlist)
 
 """
 A = [0.05, 0.1, 0.2]
@@ -134,53 +135,93 @@ for g in gamma:
 
 """
 start_time = time.time()
-# print("Start computation sim matrix")
+
+
+# CBRecommender = ItemCBFKNNRecommender(URM_train,ICM_all)
+# CBRecommender.fit(top_k=100,shrink=10,weight_feature=None)
+# sim1 = normalize(CBRecommender.sim_matrix,norm='l2')
 #
 #
+# CFRecommender = ItemBasedCollaborativeRS(URM_train)
+# CFRecommender.fit(top_k=300,shrink=10)
+# sim2 = normalize(CFRecommender.sim_matrix,norm='l2')
+#
+# print('start building Hybrid')
+# Hybrid = HybridRecommender(URM_train, sim1,sim2,sparse_weights=False)
+# Hybrid.fit(topK=100,alpha=0.5)
+# #evaluate_algorithm(URM_test,Hybrid)
+#
+# print("Start fitting BPR")
+# BPR = SLIM_BPR_Cython(URM_train, Hybrid.W, URM_test, recompile_cython=False, positive_threshold=1, train_with_sparse_weights=False,
+#                       final_model_sparse_weights=False)
+#
+# BPR.fit(epochs=15, batch_size=10000, topK=700, sgd_mode='adagrad', learning_rate=0.01, lambda_i=0.01, lambda_j=0.01)
+#
+# print("Fitting ended")
+# print("Start evaluation")
+# evaluate_algorithm(URM_test, BPR)
+# print("Evaluation ended")
+#
+# CBRecommender = ItemCBFKNNRecommender(URM_train,ICM_all2)
+# CBRecommender.fit(top_k=100,shrink=10,weight_feature=None)
+# sim1 = normalize(CBRecommender.sim_matrix,norm='l2')
+#
+#
+# CFRecommender = ItemBasedCollaborativeRS(URM_train)
+# CFRecommender.fit(top_k=300,shrink=10)
+# sim2 = normalize(CFRecommender.sim_matrix,norm='l2')
+#
+# print('start building Hybrid')
+# Hybrid = HybridRecommender(URM_train, sim1,sim2,sparse_weights=False)
+# Hybrid.fit(topK=100,alpha=0.5)
+# #evaluate_algorithm(URM_test,Hybrid)
+#
+# print("Start fitting BPR")
+# BPR = SLIM_BPR_Cython(URM_train, Hybrid.W, URM_test, recompile_cython=False, positive_threshold=1, train_with_sparse_weights=False,
+#                       final_model_sparse_weights=False)
+#
+# BPR.fit(epochs=15, batch_size=10000, topK=700, sgd_mode='adagrad', learning_rate=0.01, lambda_i=0.01, lambda_j=0.01)
+#
+# print("Fitting ended")
+# print("Start evaluation")
+# evaluate_algorithm(URM_test, BPR)
+# print("Evaluation ended")
+
+print("MAP OF 0.09363 ON KAGGLE")
+
 ItemCF = ItemBasedCollaborativeRS(URM_train)
-sim = ItemCF.fit(top_k=300, shrink=10)
-# W1 = sim
-# MAP = 0
-#
-# while MAP < 0.0737:
-#     dr = DataReader("train.csv", split_train_test=True, build_validation=False)
-#     URM_all = dr.URM_all
-#     URM_train = dr.URM_train
-#     URM_test = dr.URM_test
-#
-#     ItemCF = ItemBasedCollaborativeRS(URM_train)
-#     sim = ItemCF.fit(top_k=300, shrink=10)
-#     print(type(sim))
-#       MAP = evaluate_algorithm(URM_test, ItemCF)
-#       print(MAP)
-#
-#evaluate_algorithm(URM_test, ItemCF)
+print("Fit collaborative filtering")
+sim2 = ItemCF.fit(top_k=300, shrink=10)
+sim2 = normalize(sim2, norm='l2')
 
-print("Sim matrix built")
+BPR = SLIM_BPR_Cython(URM_train, sim2, URM_test, recompile_cython=False, positive_threshold=1, train_with_sparse_weights=False,
+                      final_model_sparse_weights=False, )
+CF_normalized = BPR.fit(epochs=4, batch_size=10000, topK=700, sgd_mode='adagrad', learning_rate=0.01, lambda_i=0.01, lambda_j=0.01)
+CF_normalized = normalize(CF_normalized, norm='l2')
+#evaluate_algorithm(URM_test, BPR)
 
 
-print("Start fitting")
+ContentB = ItemCBFKNNRecommender(URM_train, ICM_all2)
+print("Fit content based")
 
-BPR = SLIM_BPR_Cython(URM_train, sim, URM_test, recompile_cython=False, positive_threshold=1, train_with_sparse_weights=False,
+sim1 = ContentB.fit(20, 10)
+
+sim1 = normalize(sim1, norm='l2')
+BPR2 = SLIM_BPR_Cython(URM_train, sim1, URM_test, recompile_cython=False, positive_threshold=1, train_with_sparse_weights=False,
                       final_model_sparse_weights=False)
 
-BPR.fit(epochs=15, batch_size=10000, topK=700, sgd_mode='adagrad', learning_rate=0.01, lambda_i=0.01, lambda_j=0.01)
-#
-# W2 = BPR.W
-# alpha =[0.1,0.2,0.3,0.4,0.5,0.6,0.7]
-# for x in alpha:
-#     W3 = x*W1 + (1-x)*W2
-#     BPR.W = W3
-#     evaluate_algorithm(URM_test, BPR)
+CB_normalized = BPR2.fit(epochs=22, batch_size=10000, topK=700, sgd_mode='adagrad', learning_rate=0.01, lambda_i=0.01, lambda_j=0.01)
+CB_normalized = normalize(CB_normalized, norm='l2')
+#evaluate_algorithm(URM_test, BPR2)
 
 
-print("Fitting ended")
-print("Start evaluation")
-evaluate_algorithm(URM_test, BPR)
+hybrid2 = HybridRecommender(URM_train, CB_normalized, CF_normalized)
 
-#make_recommendations(BPR, target_playlist)
+sim = hybrid2.fit(340, 0.3)
+evaluate_algorithm(URM_test, hybrid2)
 
 
-print("Evaluation ended")
+
+
 
 print("Total time: {}".format(time.time() - start_time))
