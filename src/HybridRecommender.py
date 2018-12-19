@@ -46,3 +46,11 @@ class HybridRecommender(object):
         user_profile = self.URM_train.indices[start_pos:end_pos]
         scores[user_profile] = -np.inf
         return scores
+
+    def get_scores(self,user_id,exclude_seen = True):
+        user_profile = self.URM_train[user_id]
+        scores = user_profile.dot(self.W).toarray().ravel()
+        if exclude_seen:
+            scores = self.filter_seen(user_id, scores)
+        return scores
+

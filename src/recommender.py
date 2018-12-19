@@ -3,6 +3,8 @@ from src.Compute_Similarity_Python import *
 import pyximport
 pyximport.install()
 from src.Cython.Cosine_Similarity_Cython import Cosine_Similarity
+from src.IR_feature_weighting import TF_IDF
+from sklearn.preprocessing import normalize
 
 
 class RandomRecommender(object):
@@ -38,11 +40,15 @@ class ItemCBFKNNRecommender(object):
         self.URM = URM
         self.ICM = ICM
 
-    def fit(self,top_k = 50, shrink = 100, normalize = True, similarity = 'cosine'):
+    def fit(self,top_k = 50, shrink = 100, normalize = True, similarity = 'cosine',feature_weight = None):
         # similarity_object = Compute_Similarity_Python(self.ICM.T, shrink = shrink, topK= top_k,
         #                                               normalize= normalize, similarity = similarity)
         #
         # self.sim_matrix = similarity_object.compute_similarity()
+
+        if feature_weight == True:
+            self.ICM = self.ICM.astype(np.float32)
+            self.ICM = TF_IDF(self.ICM)
 
 
         similarity_object = Cosine_Similarity(self.ICM.T, top_k, shrink)
@@ -90,6 +96,8 @@ class UserBasedCollaborativeRS(object):
         ranking = scores.argsort()[::-1]
         return ranking[:at]
 
+
+
 class ItemBasedCollaborativeRS(object):
 
     def __init__(self, URM):
@@ -123,4 +131,13 @@ class ItemBasedCollaborativeRS(object):
         end_pos = self.URM.indptr[user_id + 1]
         user_profile = self.URM.indices[start_pos:end_pos]
         scores[user_profile] = -np.inf
+        return scores
+
+    def get_scores(self,user_id,exclude_seen = True):
+        user_profile = self.URM[user_id]
+        scores = user_profile.dot(self.sim_matrix).toarray().ravel()
+
+        if exclude_seen:
+            scores = self.filter_seen(user_id, scores)
+
         return scores

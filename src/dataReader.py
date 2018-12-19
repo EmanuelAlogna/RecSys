@@ -37,9 +37,10 @@ def load_track_attributes(file_path):
     #a2 = sps.coo_matrix((0.8*ones, (ICM_row, ICM_column1)))
     b = sps.coo_matrix((ones, (ICM_row, ICM_column2)))
     #b2 = sps.coo_matrix((0.9*ones, (ICM_row, ICM_column2)))
-    e = sps.coo_matrix((0.15*ones, (ICM_row, ICM_column3)))
+    e = sps.coo_matrix((1.5*ones, (ICM_row, ICM_column3)))
     c = hstack([a, b])
     d = hstack([c, e])
+
 
     #f = hstack([a2, b])
     #h = hstack([f, e])
@@ -128,7 +129,7 @@ def split_dataset(URM_all,train_test_ratio =0.8):
 
 
 
-def split_dataset_random(URM_all):
+def split_dataset_random(URM_all,train_test_ratio):
     num_interactions = URM_all.nnz
     file = pd.read_csv('../data/train.csv')
     list_playlist = file['playlist_id'].T
@@ -140,6 +141,8 @@ def split_dataset_random(URM_all):
     train_mask = np.logical_not(train_mask)
     URM_test = sps.coo_matrix((ratings[train_mask], (list_playlist[train_mask], list_tracks[train_mask])))
     URM_test = URM_test.tocsr()
+    URM_train.eliminate_zeros()
+    URM_test.eliminate_zeros()
     return URM_train,URM_test
 
 

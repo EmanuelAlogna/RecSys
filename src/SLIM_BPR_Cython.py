@@ -15,13 +15,13 @@ from src.SimilarityMatrixRecommender import SimilarityMatrixRecommender
 from src.Incremental_Training_Early_Stopping import Incremental_Training_Early_Stopping
 from src.Recommender2 import Recommender
 from src.metrics import *
-
+from sklearn.preprocessing import maxabs_scale
 
 class SLIM_BPR_Cython(SimilarityMatrixRecommender, Recommender, Incremental_Training_Early_Stopping):
 
     def __init__(self, URM_train, sim, URM_test, positive_threshold=4, URM_validation = None,
                  recompile_cython = False, final_model_sparse_weights = True, train_with_sparse_weights = False,
-                 symmetric = True):
+                 symmetric = True, scan = False):
 
 
         super(SLIM_BPR_Cython, self).__init__()
@@ -34,6 +34,7 @@ class SLIM_BPR_Cython(SimilarityMatrixRecommender, Recommender, Incremental_Trai
         self.n_items = URM_train.shape[1]
         self.normalize = False
         self.positive_threshold = positive_threshold
+        self.scan = scan
 
         self.train_with_sparse_weights = train_with_sparse_weights
         self.sparse_weights = final_model_sparse_weights
@@ -129,7 +130,7 @@ class SLIM_BPR_Cython(SimilarityMatrixRecommender, Recommender, Incremental_Trai
         #                             validation_metric, lower_validatons_allowed, evaluator_object,
         #                             algorithm_name = self.RECOMMENDER_NAME)
 
-        self.train()
+        self.train(self.scan)
 
         self.get_S_incremental_and_set_W()
         sys.stdout.flush()
@@ -183,25 +184,21 @@ class SLIM_BPR_Cython(SimilarityMatrixRecommender, Recommender, Incremental_Trai
     def _run_epoch(self):
        self.cythonEpoch.epochIteration_Cython()
 
-
     def get_URM_train(self):
         return self.URM_train.copy()
 
-    def train(self):
+    def train(self, scan):
         current_epoch = 0
         while current_epoch < self.epochs:
             print("Epoch {} of {}".format(current_epoch, self.epochs))
             self._run_epoch()
 
-            """
-            if current_epoch > 13:
+            if scan:
                 self.get_S_incremental_and_set_W()
 
                 evaluate_algorithm(self.URM_test, self)
-            """
 
             current_epoch += 1
-
 
     def get_S_incremental_and_set_W(self):
 
@@ -214,3 +211,24 @@ class SLIM_BPR_Cython(SimilarityMatrixRecommender, Recommender, Incremental_Trai
                 self.W_sparse = similarityMatrixTopK(self.S_incremental, k = self.topK)
             else:
                 self.W = self.S_incremental
+
+
+
+    def get_scores(self,user_id,exclude_seen = True):
+
+        user_profile = self.URM_train.indices[self.URM_train.indptr[user_id]:self.URM_train.indptr[user_id + 1]]
+        user_ratings = self.URM_train.data[self.URM_train.indptr[user_id]:self.URM_train.indptr[user_id + 1]]
+
+        relevant_weights = self.W[user_profile]
+        scores = relevant_weights.T.dot(user_ratings)
+
+        scores = maxabs_scale(scores)
+        #scores = minmax_scale(scores)
+
+        if exclude_seen:
+            scores = self.filter_seen(user_id, scores)
+        return scores
+
+    def getURM(self):
+        W_sparse = sps.csr_matrix(self.W)
+        return np.dot(self.URM_train,W_sparse)
